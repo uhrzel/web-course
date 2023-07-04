@@ -11,6 +11,16 @@
       a {
         color: black;
       }
+      table,
+      tr,
+      th,
+      td,
+      caption {
+        border-collapse: collapse;
+        border: 1px solid #000000ee;
+        padding: 0.5rem;
+        font-family: "Courier New", Courier, monospace;
+      }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,10 +30,12 @@
   <body>
     <section id="profile">
       <br />
-      <nav>
+      <nav aria-label="primary-navigation">
         <ul>
           <li><a href="#about">About me</a></li>
           <li><a href="#contact">Contact Me</a></li>
+          <li> <a href="#message">Message Me</a>
+          </li>
         </ul>
       </nav>
       <h1>Welcome to my Website</h1>
@@ -40,7 +52,7 @@
         </figcaption>
       </figure>
     </section>
-    <hr />
+
     <section id="about">
       <h4>About Me</h4>
       <ul>
@@ -52,7 +64,33 @@
           <a href="#profile">Back to top</a>
         </li>
       </ul>
-      <hr />
+    </section>
+    <section id="tbl">
+      <table>
+        <caption>
+          My References
+        </caption>
+        <tr>
+          <th>&nbsp</th>
+          <th>Skills</th>
+          <th>Projects</th>
+        </tr>
+        <tr>
+          <th>Mobile App</th>
+          <td>Flutter 55%</td>
+          <td>Attendance System</td>
+        </tr>
+        <tr>
+          <th>Web Systems</th>
+          <td>Php 70%</td>
+          <td>Medical Appointment System</td>
+        </tr>
+        <tr>
+          <th>Dekstop Application</th>
+          <td>Java 30%</td>
+          <td>Java Activities</td>
+        </tr>
+      </table>
     </section>
 
     <section id="contact">
@@ -64,7 +102,64 @@
           <a href="#profile">Back to top</a>
         </li>
       </ul>
-      <hr />
     </section>
+<center>
+    <div class="container" id="message">
+      <table border="0" style="margin: 0; padding: 0; width: 60%;">
+        <tr>
+          <td>
+            <p class="header-text">Welcome back</p>
+          </td>
+          <div class="form-body">
+            <tr>
+              <td>
+                <p class="sub-text">Message me</p>
+              </td>
+            </tr>
+            <tr>
+                <form action="https://httpbin.org/get" method="get">
+                       <td class="label-td">
+                  <label for="password" class="form-label">email: </label>
+                </td>
+                <tr>
+                  <td class="label-td">
+                    <input type="text " name="password" class="input-text" placeholder="password" required>
+                  </td>
+                </tr>
+                <td class="label-td">
+                  <label for="username" class="form-label">Username: </label>
+                </td>
+                <tr>
+                  <td class="label-td">
+                    <input type="text " name="uname" class="input-text" placeholder="username" required>
+                  </td>
+                </tr>
+            <td class="label-td">
+              <label for="message" class="form-label">You message</label>
+            </td>
+            <tr>
+              <td class="lael-td">
+                <textarea name="message" id="" cols="30" rows="10"></textarea>
+              </td>
+            </tr>
+
+                <tr>
+                  <td>
+                    <input type="submit" value="Login" class="login-btn btn-primary btn">
+                  </td>
+                </tr>
+              </form>
+            </tr>
+          
+            </tr>
+        
+          </div>
+        </tr>
+      </table>
+    </div>
+    </center>
+
+    <hr>
+    
   </body>
 </html>
