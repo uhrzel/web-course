@@ -1,8 +1,8 @@
 #profile {
   text-align: center;
 }
-nav {
-  text-align: left;
+.nav-list {
+  background-color: aqua;
 }
 a {
   color: black;
@@ -16,4 +16,10 @@ caption {
   border: 1px solid #000000ee;
   padding: 0.5rem;
   font-family: "Courier New", Courier, monospace;
+}
+#name {
+  color: red;
+}
+h1 {
+  text-align: center;
 }
