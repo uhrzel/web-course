@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <center>
+      <table>
+        <tr>
+          <td>
+            <div class="btn">
+              <input type="button" value="C" class="clear" />
+              <input type="button" value="÷" class="division" />
+              <input type="button" value="x" class="times" />
+              <input type="button" value="⌫" class="clear" /> <br />
+              <input type="button" value="7" class="seven" />
+              <input type="button" value="8" class="eight" />
+              <input type="button" value="9" class="nine" />
+              <input type="button" value="-" class="minus" /> <br />
+              <input type="button" value="4" class="four" />
+              <input type="button" value="5" class="five" />
+              <input type="button" value="6" class="six" />
+              <input type="button" value="+" class="plus" /><br />
+              <button type="number" class="one">1</button>
+              <button type="number" class="two">2</button>
+              <input type="button" value="3" class="three" />
+              <input type="button" value="=" class="equal" /><br />
+              <input type="button" value="%" class="percent" />
+              <input type="button" value="0" class="zero" />
+              <input type="button" value="." class="dot" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="display"></span>
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <script>
+      const display = document.querySelector(".display");
+      const clearButton = document.querySelector(".clear");
+      const divisionButton = document.querySelector(".division");
+      const timesButton = document.querySelector(".times");
+      const minusButton = document.querySelector(".minus");
+      const plusButton = document.querySelector(".plus");
+      const equalButton = document.querySelector(".equal");
+      const percentButton = document.querySelector(".percent");
+      const dotButton = document.querySelector(".dot");
+
+      const numberButtons = document.querySelectorAll(".btn .number");
+
+      let currentInput = "";
+      let previousInput = "";
+      let operator = "";
+
+      // Update the display
+      function updateDisplay(value) {
+        display.textContent = value;
+      }
+
+      // Handle number button clicks
+      numberButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          currentInput += button.value;
+          updateDisplay(currentInput);
+        });
+      });
+
+      // Handle clear button click
+      clearButton.addEventListener("click", () => {
+        currentInput = "";
+        previousInput = "";
+        operator = "";
+        updateDisplay("");
+      });
+
+      // Handle operator button clicks
+      divisionButton.addEventListener("click", () => {
+        operator = "/";
+        previousInput = currentInput;
+        currentInput = "";
+      });
+
+      timesButton.addEventListener("click", () => {
+        operator = "*";
+        previousInput = currentInput;
+        currentInput = "";
+      });
+
+      minusButton.addEventListener("click", () => {
+        operator = "-";
+        previousInput = currentInput;
+        currentInput = "";
+      });
+
+      plusButton.addEventListener("click", () => {
+        operator = "+";
+        previousInput = currentInput;
+        currentInput = "";
+      });
+
+      percentButton.addEventListener("click", () => {
+        operator = "%";
+        previousInput = currentInput;
+        currentInput = "";
+      });
+
+      // Handle equal button click
+      equalButton.addEventListener("click", () => {
+        if (currentInput !== "" && previousInput !== "") {
+          let result;
+          const num1 = parseFloat(previousInput);
+          const num2 = parseFloat(currentInput);
+
+          switch (operator) {
+            case "/":
+              result = num1 / num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "+":
+              result = num1 + num2;
+              break;
+            case "%":
+              result = (num1 / 100) * num2;
+              break;
+            default:
+              return;
+          }
+
+          currentInput = result.toString();
+          previousInput = "";
+          operator = "";
+          updateDisplay(result);
+        }
+      });
+
+      // Handle dot button click
+      dotButton.addEventListener("click", () => {
+        if (!currentInput.includes(".")) {
+          currentInput += ".";
+          updateDisplay(currentInput);
+        }
+      });
+    </script>
+  </body>
+</html>
