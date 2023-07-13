@@ -106,7 +106,9 @@ if (isset($_GET['login'])) {
 
   </div>
   <hr>
-
+<p>
+  lore
+</p>
 </body>
 
 </html>

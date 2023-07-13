@@ -9,3 +9,4 @@ document.body.append(solve);
 let x = { arzel: "arzel", john: "john" };
 console.log(typeof x);
  */
+g
